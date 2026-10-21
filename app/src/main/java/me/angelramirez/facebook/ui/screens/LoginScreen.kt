@@ -1,4 +1,4 @@
-package me.angelramirez.facebook
+package me.angelramirez.facebook.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
