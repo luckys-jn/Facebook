@@ -86,13 +86,16 @@ fun FacebookLoginScreen(navController : NavController) {
         // Botón Iniciar sesión
         Button(
             onClick = {
+                // Simulación de inicio de sesión hacia la pantalla del Feed
+                navController.navigate("feed") {
+                    popUpTo("login") { inclusive = true }
+                }
             },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(48.dp),
             colors = ButtonDefaults.buttonColors(containerColor = FacebookBlue),
             shape = RoundedCornerShape(6.dp),
-            //enabled = email.isNotBlank() && password.isNotBlank()
         ) {
             Text(
                 text = "Iniciar sesión",
@@ -105,7 +108,11 @@ fun FacebookLoginScreen(navController : NavController) {
         Spacer(modifier = Modifier.height(20.dp))
 
         // Link "¿Olvidaste tu contraseña?"
-        TextButton(onClick = {}) {
+        TextButton(
+            onClick = {
+                navController.navigate("forgot_password")
+            }
+        ) {
             Text(
                 text = "¿Olvidaste tu contraseña?",
                 color = FacebookTextGray,
@@ -144,7 +151,6 @@ fun FacebookLoginScreen(navController : NavController) {
         Button(
             onClick = {
                 navController.navigate("register")
-
             },
             modifier = Modifier
                 .fillMaxWidth()
